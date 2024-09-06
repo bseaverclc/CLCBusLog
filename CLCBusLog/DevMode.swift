@@ -20,6 +20,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var focalCell = (UITableView(), -1, false)
     var busOptions = [String]()
+    var permanentBuses = [String]()
     var target = -1
     var uncomittedChanges = false
     var userStandards = UserDefaults()
@@ -27,7 +28,8 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad()
     {
         
-        busOptions = userStandards.stringArray(forKey: "busOptions") ?? ["408"]
+        busOptions = userStandards.stringArray(forKey: "busOptions") ?? ["400", "401", "402", "403", "404", "405", "406", "407", "408", "410", "411", "412", "413"]
+        permanentBuses = userStandards.stringArray(forKey: "permanentOptions") ?? ["400", "401", "402", "403", "404", "405", "406", "407", "408", "410", "411", "412", "413"]
         
         busView.dataSource = self
         busView.delegate = self
@@ -473,6 +475,8 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if valid {
                 self.busOptions.insert(alert.textFields![0].text!, at: 0)
                 self.userStandards.set(self.busOptions, forKey: "busOptions")
+                self.permanentBuses = self.busOptions
+                self.userStandards.setValue(self.permanentBuses, forKey: "permanentOptions")
                 self.inserterView.reloadData()
                 
             }
@@ -489,6 +493,8 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             alert.addAction(UIAlertAction(title: "Remove", style: UIAlertAction.Style.default, handler: { UIAlertAction in
                 self.busOptions.remove(at: self.target)
                 self.userStandards.set(self.busOptions, forKey: "busOptions")
+                self.permanentBuses = self.busOptions
+                self.userStandards.setValue(self.permanentBuses, forKey: "permanentOptions")
                 self.target = -1
                 self.inserterView.reloadData()
             }))
@@ -541,6 +547,26 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             commitButton.backgroundColor = UIColor.systemBlue
             busView.backgroundColor = #colorLiteral(red: 0.5013468862, green: 0.4937239885, blue: 0, alpha: 0.3008872335)
         })
+        
+        var shouldBreak = false
+        
+        for var i in 0..<self.busOptions.count {
+            for a in 0..<ViewController.busBuilder.count {
+                if ViewController.busBuilder[a].1 == self.busOptions[i] || ViewController.busBuilder[a].3 == self.busOptions[i] {
+                    print(busOptions.count)
+                    print(a)
+                    self.busOptions.remove(at: i)
+                    i -= 1
+                    shouldBreak = true
+                    break
+                }
+            }
+            if(shouldBreak){break}
+        }
+
+        UserDefaults.standard.setValue(busOptions, forKey: "busOptions")
+        inserterView.reloadData()
+        
         commitButton.isUserInteractionEnabled = true
     }
     @IBAction func commit(_ sender: Any)
@@ -593,7 +619,9 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             ViewController.busBuilder[i].2 = .Null
             ViewController.busBuilder[i].3 = ""
         }
-        
+        busOptions = permanentBuses
+        UserDefaults.standard.setValue(busOptions, forKey: "busOptions")
+        inserterView.reloadData()
         busView.reloadData()
         changedSomething()
         
