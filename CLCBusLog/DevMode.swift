@@ -543,7 +543,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
         })
         
 
-        for i in 0..<self.busOptions.count {
+        for i in 0..<self.busOptions.count - 1 {
             for a in 0..<ViewController.busBuilder.count {
                 if ViewController.busBuilder[a].1 == self.busOptions[i] || ViewController.busBuilder[a].3 == self.busOptions[i] {
                     print(busOptions.count)
