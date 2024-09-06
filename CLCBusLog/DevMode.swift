@@ -541,6 +541,22 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             commitButton.backgroundColor = UIColor.systemBlue
             busView.backgroundColor = #colorLiteral(red: 0.5013468862, green: 0.4937239885, blue: 0, alpha: 0.3008872335)
         })
+        
+
+        for i in 0..<self.busOptions.count {
+            for a in 0..<ViewController.busBuilder.count {
+                if ViewController.busBuilder[a].1 == self.busOptions[i] || ViewController.busBuilder[a].3 == self.busOptions[i] {
+                    print(busOptions.count)
+                    print(a)
+                    self.busOptions.remove(at: i)
+                    
+                    break
+                }
+            }
+        }
+
+        inserterView.reloadData()
+        
         commitButton.isUserInteractionEnabled = true
     }
     @IBAction func commit(_ sender: Any)
