@@ -564,7 +564,6 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if(shouldBreak){break}
         }
 
-        UserDefaults.standard.setValue(busOptions, forKey: "busOptions")
         inserterView.reloadData()
         
         commitButton.isUserInteractionEnabled = true
@@ -598,6 +597,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             default:
                 listTwo.append("")
             }
+            UserDefaults.standard.setValue(busOptions, forKey: "busOptions")
         }
         div.setData(["inf1" : listOne, "inf2" : listTwo, "num1" : nameOne, "num2" : nameTwo, "median" : ViewController.mid, "signature" : UIDevice.current.identifierForVendor?.uuidString as Any])
         UIView.animate(withDuration: 0.5, animations: { [self] in
@@ -620,7 +620,6 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             ViewController.busBuilder[i].3 = ""
         }
         busOptions = permanentBuses
-        UserDefaults.standard.setValue(busOptions, forKey: "busOptions")
         inserterView.reloadData()
         busView.reloadData()
         changedSomething()
