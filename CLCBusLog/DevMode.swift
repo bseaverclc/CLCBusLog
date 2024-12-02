@@ -618,7 +618,6 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func changedSomething()
     {
         UIView.animate(withDuration: 0.5, animations: { [self] in
-            commitButton.backgroundColor = UIColor.systemBlue
             busView.backgroundColor = #colorLiteral(red: 0.5013468862, green: 0.4937239885, blue: 0, alpha: 0.3008872335)
         })
         
@@ -640,7 +639,8 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         inserterView.reloadData()
         
-        commitButton.isUserInteractionEnabled = true
+        commit(self)
+        
     }
     @IBAction func commit(_ sender: Any)
     {
