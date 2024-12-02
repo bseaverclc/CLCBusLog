@@ -24,6 +24,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var target = -1
     var uncomittedChanges = false
     var userStandards = UserDefaults()
+    let div = Firestore.firestore().collection("busLog").document("info")
     
     override func viewDidLoad()
     {
@@ -42,7 +43,80 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tempView.layer.cornerRadius = 20
         stepir.maximumValue = Double(ViewController.busBuilder.count)
         stepir.value = Double(ViewController.mid)
+        
+        div.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+              print("Error fetching document: \(error!)")
+              return
+            }
+            guard let data = document.data() else {
+              print("Document data was empty.")
+              return
+            }
+            
+            ViewController.busBuilder = [(busTendancy, String, busTendancy, String)]()
+            let leftBusNumbers = document.get("num1") as! [String]
+            let rightBusNumbers = document.get("num2") as! [String]
+            
+            let leftPresentsText = document.get("inf1") as! [String]
+            let rightPresentsText = document.get("inf2") as! [String]
+            
+            ViewController.mid = document.get("median") as! Int
+            
+            var leftBusTendency = [busTendancy]()
+            var rightBusTendency = [busTendancy]()
+            
+            for value in leftPresentsText{
+                switch value{
+                case "p":
+                    leftBusTendency.append(busTendancy.Present)
+                case "o":
+                    leftBusTendency.append(busTendancy.Occupied)
+                case "":
+                    leftBusTendency.append(busTendancy.Null)
+                default:
+                    print("error")
+                }
+            }
+            for value in rightPresentsText{
+                switch value{
+                case "p":
+                    rightBusTendency.append(busTendancy.Present)
+                case "o":
+                    rightBusTendency.append(busTendancy.Occupied)
+                case "":
+                    rightBusTendency.append(busTendancy.Null)
+                default:
+                    print("error")
+                }
+            }
+            
+            for spot in 0..<leftBusNumbers.count{
+                ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+            }
+            self.busView.reloadData()
+            
+            for i in stride(from: self.busOptions.count - 1, to: 0, by: -1){
+                
+                for n in 0..<ViewController.busBuilder.count{
+                    if(ViewController.busBuilder[n].1 == self.busOptions[i] || ViewController.busBuilder[n].3 == self.busOptions[i]){
+                        self.busOptions.remove(at: i)
+                        break
+                    }
+                }
+                
+                
+            }
+
+            self.inserterView.reloadData()
+            
+            
+          }
     }
+    
+    
+    
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == busView
@@ -570,7 +644,6 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     @IBAction func commit(_ sender: Any)
     {
-        let div = Firestore.firestore().collection("busLog").document("info")
         var listOne = [String]()
         var listTwo = [String]()
         var nameOne = [String]()
