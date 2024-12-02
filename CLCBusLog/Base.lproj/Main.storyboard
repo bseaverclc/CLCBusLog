@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -196,7 +196,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYc-V6-q7I">
-                                <rect key="frame" x="256" y="782" width="106" height="50"/>
+                                <rect key="frame" x="0.0" y="782" width="362" height="50"/>
                                 <color key="backgroundColor" red="0.1079989153219548" green="0.29388049809696032" blue="0.49548118134013941" alpha="0.2491672722868217" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="9lo-gl-gF7"/>
@@ -208,35 +208,15 @@
                                     <action selector="developer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qS3-fh-fYx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ap-YY-0Dp">
-                                <rect key="frame" x="31" y="782" width="217" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="B9n-4x-Cpn"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="f1l-ND-YJx"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Update">
-                                    <fontDescription key="titleFontDescription" name="Georgia" family="Georgia" pointSize="30"/>
-                                    <color key="baseForegroundColor" red="1" green="0.98519998760000005" blue="0.9866371531" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="update:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rtp-Zn-pgV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.093317007447718134" green="0.095676663940688744" blue="0.11687022033969918" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Ap-YY-0Dp" firstAttribute="top" secondItem="CT7-u0-XFn" secondAttribute="bottom" constant="10" id="15l-bl-wsG"/>
                             <constraint firstItem="CT7-u0-XFn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="45H-jC-uz5"/>
-                            <constraint firstItem="oYc-V6-q7I" firstAttribute="top" secondItem="6Ap-YY-0Dp" secondAttribute="top" id="7kJ-ck-qhm"/>
-                            <constraint firstItem="oYc-V6-q7I" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Ap-YY-0Dp" secondAttribute="trailing" constant="8" symbolic="YES" id="81S-dH-CdG"/>
-                            <constraint firstAttribute="bottom" secondItem="6Ap-YY-0Dp" secondAttribute="bottom" constant="20" id="Hrj-nf-gWG"/>
-                            <constraint firstItem="6Ap-YY-0Dp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="31" id="IXo-0Y-ICU"/>
-                            <constraint firstItem="oYc-V6-q7I" firstAttribute="bottom" secondItem="6Ap-YY-0Dp" secondAttribute="bottom" id="YTt-bg-tBv"/>
+                            <constraint firstAttribute="bottom" secondItem="oYc-V6-q7I" secondAttribute="bottom" constant="20" symbolic="YES" id="9KB-dm-nMK"/>
+                            <constraint firstItem="oYc-V6-q7I" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9WQ-JI-i1Y"/>
                             <constraint firstItem="oYc-V6-q7I" firstAttribute="trailing" secondItem="CT7-u0-XFn" secondAttribute="trailing" id="dNy-uZ-FZY"/>
-                            <constraint firstItem="oYc-V6-q7I" firstAttribute="centerY" secondItem="6Ap-YY-0Dp" secondAttribute="centerY" id="mNl-bt-ydD"/>
+                            <constraint firstItem="oYc-V6-q7I" firstAttribute="top" secondItem="CT7-u0-XFn" secondAttribute="bottom" constant="10" id="dq8-k7-6Yh"/>
                             <constraint firstItem="CT7-u0-XFn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="uTn-OW-JvS"/>
                             <constraint firstItem="CT7-u0-XFn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="uiF-tP-CbO"/>
                         </constraints>
@@ -244,7 +224,6 @@
                     <connections>
                         <outlet property="busView" destination="CT7-u0-XFn" id="jAZ-o6-ZSm"/>
                         <outlet property="editButton" destination="oYc-V6-q7I" id="rvU-t1-ur8"/>
-                        <outlet property="updateButton" destination="6Ap-YY-0Dp" id="Rng-Pa-mER"/>
                         <segue destination="izG-YJ-wVx" kind="presentation" identifier="developer" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="uFW-kw-w6G"/>
                     </connections>
                 </viewController>
@@ -692,10 +671,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

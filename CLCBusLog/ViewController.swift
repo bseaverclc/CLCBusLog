@@ -10,7 +10,6 @@ import FirebaseFirestore
 import CoreData
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var busView: UITableView!
-    @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var bumpView: UIView!
     static var mid = 0
@@ -28,7 +27,6 @@ let div = Firestore.firestore().collection("busLog").document("info")
     {
         print(signifier!)
         busView.layer.cornerRadius = 20
-        updateButton.layer.cornerRadius = 20
         editButton.layer.cornerRadius = 20
         fetch()
         busView.dataSource = self
@@ -173,15 +171,12 @@ let div = Firestore.firestore().collection("busLog").document("info")
         if canUpdate == true
         {
             canUpdate = false
-            updateButton.backgroundColor = #colorLiteral(red: 0.1420087814, green: 0.02641401254, blue: 0.02643535472, alpha: 0.2024890988)
             UIView.animate(withDuration: 10.0)
             { [self] in
-                updateButton.backgroundColor = #colorLiteral(red: 0.02908428758, green: 0.1822896004, blue: 0.382317543, alpha: 0.3520772771)
             } completion:
             { [self] _ in
                 UIView.animate(withDuration: 0.2)
                 { [self] in
-                    updateButton.backgroundColor = UIColor.systemBlue
                 } completion: { [self] _ in
                     canUpdate = true
                 }
