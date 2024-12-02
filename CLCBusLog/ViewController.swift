@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     let password = "Testflight"
     let signifier = UIDevice.current.identifierForVendor?.uuidString
     var timerForShowScrollIndicator: Timer?
+let div = Firestore.firestore().collection("busLog").document("info")
     
     override func viewDidLoad()
     {
@@ -39,6 +40,61 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         busView.flashScrollIndicators()
         busView.indicatorStyle = UIScrollView.IndicatorStyle.white
+        
+       
+        div.addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+              print("Error fetching document: \(error!)")
+              return
+            }
+            guard let data = document.data() else {
+              print("Document data was empty.")
+              return
+            }
+            
+            ViewController.busBuilder = [(busTendancy, String, busTendancy, String)]()
+            let leftBusNumbers = document.get("num1") as! [String]
+            let rightBusNumbers = document.get("num2") as! [String]
+            
+            let leftPresentsText = document.get("inf1") as! [String]
+            let rightPresentsText = document.get("inf2") as! [String]
+            
+            ViewController.mid = document.get("median") as! Int
+            
+            var leftBusTendency = [busTendancy]()
+            var rightBusTendency = [busTendancy]()
+            
+            for value in leftPresentsText{
+                switch value{
+                case "p":
+                    leftBusTendency.append(busTendancy.Present)
+                case "o":
+                    leftBusTendency.append(busTendancy.Occupied)
+                case "":
+                    leftBusTendency.append(busTendancy.Null)
+                default:
+                    print("error")
+                }
+            }
+            for value in rightPresentsText{
+                switch value{
+                case "p":
+                    rightBusTendency.append(busTendancy.Present)
+                case "o":
+                    rightBusTendency.append(busTendancy.Occupied)
+                case "":
+                    rightBusTendency.append(busTendancy.Null)
+                default:
+                    print("error")
+                }
+            }
+            
+            for spot in 0..<leftBusNumbers.count{
+                ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+            }
+            self.busView.reloadData()
+            
+          }
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -212,7 +268,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let prot = ViewController.busBuilder
         ViewController.busBuilder.removeAll()
         ViewController.mid = 0
-        let div = Firestore.firestore().collection("busLog").document("info")
         div.getDocument { (doc, err) in
             guard err == nil
             else { print("failed to substantiate Firestore: \(String(describing: err))"); return }
