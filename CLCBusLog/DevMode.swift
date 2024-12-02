@@ -96,16 +96,13 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
             self.busView.reloadData()
             
-            for i in stride(from: self.busOptions.count - 1, to: 0, by: -1){
-                
+            for i in stride(from: self.busOptions.count - 1, to: -1, by: -1){
                 for n in 0..<ViewController.busBuilder.count{
                     if(ViewController.busBuilder[n].1 == self.busOptions[i] || ViewController.busBuilder[n].3 == self.busOptions[i]){
                         self.busOptions.remove(at: i)
                         break
                     }
                 }
-                
-                
             }
 
             self.inserterView.reloadData()
@@ -621,20 +618,13 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             busView.backgroundColor = #colorLiteral(red: 0.5013468862, green: 0.4937239885, blue: 0, alpha: 0.3008872335)
         })
         
-        var shouldBreak = false
-        
-        for var i in 0..<self.busOptions.count {
-            for a in 0..<ViewController.busBuilder.count {
-                if ViewController.busBuilder[a].1 == self.busOptions[i] || ViewController.busBuilder[a].3 == self.busOptions[i] {
-                    print(busOptions.count)
-                    print(a)
+        for i in stride(from: self.busOptions.count - 1, to: -1, by: -1){
+            for n in 0..<ViewController.busBuilder.count{
+                if(ViewController.busBuilder[n].1 == self.busOptions[i] || ViewController.busBuilder[n].3 == self.busOptions[i]){
                     self.busOptions.remove(at: i)
-                    i -= 1
-                    shouldBreak = true
                     break
                 }
             }
-            if(shouldBreak){break}
         }
 
         inserterView.reloadData()
