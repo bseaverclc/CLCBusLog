@@ -28,7 +28,7 @@ let div = Firestore.firestore().collection("busLog").document("info")
         print(signifier!)
         busView.layer.cornerRadius = 20
         editButton.layer.cornerRadius = 20
-        fetch()
+        //fetch()
         busView.dataSource = self
         busView.delegate = self
         super.viewDidLoad()

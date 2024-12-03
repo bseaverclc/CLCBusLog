@@ -95,7 +95,8 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
             }
             self.busView.reloadData()
-            
+            self.busOptions = self.permanentBuses
+            self.busOptions = self.busOptions.sorted()
             for i in stride(from: self.busOptions.count - 1, to: -1, by: -1){
                 for n in 0..<ViewController.busBuilder.count{
                     if(ViewController.busBuilder[n].1 == self.busOptions[i] || ViewController.busBuilder[n].3 == self.busOptions[i]){
