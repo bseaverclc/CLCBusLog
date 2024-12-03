@@ -618,6 +618,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
             busView.backgroundColor = #colorLiteral(red: 0.5013468862, green: 0.4937239885, blue: 0, alpha: 0.3008872335)
         })
         
+        busOptions = [String](permanentBuses)
         for i in stride(from: self.busOptions.count - 1, to: -1, by: -1){
             for n in 0..<ViewController.busBuilder.count{
                 if(ViewController.busBuilder[n].1 == self.busOptions[i] || ViewController.busBuilder[n].3 == self.busOptions[i]){
@@ -688,6 +689,4 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
         changedSomething()
         
     }
-    
-    
 }
