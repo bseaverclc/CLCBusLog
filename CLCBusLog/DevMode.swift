@@ -38,8 +38,6 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
         inserterView.dataSource = self
         inserterView.delegate = self
         inserterView.layer.cornerRadius = 20
-        commitButton.layer.cornerRadius = 20
-        commitButton.isUserInteractionEnabled = false
         tempView.layer.cornerRadius = 20
         stepir.maximumValue = Double(ViewController.busBuilder.count)
         stepir.value = Double(ViewController.mid)
@@ -673,10 +671,9 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         div.setData(["inf1" : listOne, "inf2" : listTwo, "num1" : nameOne, "num2" : nameTwo, "median" : ViewController.mid, "signature" : UIDevice.current.identifierForVendor?.uuidString as Any])
         UIView.animate(withDuration: 0.5, animations: { [self] in
-            commitButton.backgroundColor = #colorLiteral(red: 0.1420087814, green: 0.02641401254, blue: 0.02643535472, alpha: 0.2024890988)
             busView.backgroundColor = #colorLiteral(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.2025403912)
         })
-        commitButton.isUserInteractionEnabled = false
+        
     }
     @IBAction func returnToSender(_ sender: Any) 
     {

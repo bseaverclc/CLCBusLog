@@ -241,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SWV-HB-eTw">
-                                <rect key="frame" x="20" y="69" width="237" height="656.33333333333337"/>
+                                <rect key="frame" x="20" y="69" width="237" height="676.33333333333337"/>
                                 <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.20254039115646258" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Frontmost" id="Wl8-Fh-HkB">
@@ -428,7 +428,7 @@
                                 </prototypes>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NmD-iU-xyM">
-                                <rect key="frame" x="265" y="69" width="112" height="656.33333333333337"/>
+                                <rect key="frame" x="265" y="69" width="112" height="676.33333333333337"/>
                                 <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.19953762755102042" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="yCp-78-Y2h"/>
@@ -505,7 +505,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGd-EJ-c04">
-                                <rect key="frame" x="20" y="755.33333333333337" width="357" height="34.333333333333371"/>
+                                <rect key="frame" x="20" y="775.33333333333337" width="357" height="34.333333333333371"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="sAB-XV-nlC">
                                         <rect key="frame" x="0.0" y="0.0" width="228" height="34.333333333333336"/>
@@ -580,10 +580,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZIy-Vh-vcR">
-                                <rect key="frame" x="0.0" y="797.66666666666663" width="393" height="54.333333333333371"/>
+                                <rect key="frame" x="0.0" y="817.66666666666663" width="393" height="34.333333333333371"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpH-oO-IpF">
-                                        <rect key="frame" x="0.0" y="0.0" width="131" height="54.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Exit">
                                             <imageReference key="image" image="arrowshape.backward" catalog="system" symbolScale="large"/>
@@ -593,24 +593,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ioT-Pi-lCr">
-                                        <rect key="frame" x="131" y="0.0" width="131" height="54.333333333333336"/>
+                                        <rect key="frame" x="196.66666666666663" y="0.0" width="196.33333333333337" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Clear All">
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="clearAllAction:" destination="izG-YJ-wVx" eventType="touchUpInside" id="dGH-dH-aqE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Lz-bR-ksI">
-                                        <rect key="frame" x="262" y="0.0" width="131" height="54.333333333333336"/>
-                                        <color key="backgroundColor" red="0.14200878140000001" green="0.02641401254" blue="0.026435354719999998" alpha="0.20248909879999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Commit Changes">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="commit:" destination="izG-YJ-wVx" eventType="touchUpInside" id="5Ar-3Z-tdW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -646,7 +635,6 @@
                     <navigationItem key="navigationItem" id="BvO-Lb-yhq"/>
                     <connections>
                         <outlet property="busView" destination="SWV-HB-eTw" id="Sjl-1x-WEe"/>
-                        <outlet property="commitButton" destination="1Lz-bR-ksI" id="UmH-h1-S0J"/>
                         <outlet property="drag" destination="Y7l-oF-319" id="ixD-kL-61Y"/>
                         <outlet property="inserterView" destination="NmD-iU-xyM" id="7L4-kw-fdO"/>
                         <outlet property="stepir" destination="7WL-aZ-wLR" id="tBi-7x-cG4"/>
@@ -672,10 +660,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
