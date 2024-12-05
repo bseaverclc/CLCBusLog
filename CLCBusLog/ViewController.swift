@@ -28,7 +28,6 @@ let div = Firestore.firestore().collection("busLog").document("info")
         print(signifier!)
         busView.layer.cornerRadius = 20
         editButton.layer.cornerRadius = 20
-        //fetch()
         busView.dataSource = self
         busView.delegate = self
         super.viewDidLoad()
@@ -87,8 +86,15 @@ let div = Firestore.firestore().collection("busLog").document("info")
                 }
             }
             
-            for spot in 0..<leftBusNumbers.count{
-                ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+            if(rightBusTendency.count <= leftBusNumbers.count){
+                for spot in 0..<rightBusTendency.count{
+                    ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+                }
+            }
+            else{
+                for spot in 0..<leftBusNumbers.count{
+                    ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+                }
             }
             self.busView.reloadData()
             

@@ -91,8 +91,15 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
-            for spot in 0..<leftBusNumbers.count{
-                ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+            if(rightBusTendency.count <= leftBusNumbers.count){
+                for spot in 0..<rightBusTendency.count{
+                    ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+                }
+            }
+            else{
+                for spot in 0..<leftBusNumbers.count{
+                    ViewController.busBuilder.append((leftBusTendency[spot], leftBusNumbers[spot], rightBusTendency[spot], rightBusNumbers[spot]))
+                }
             }
             self.busView.reloadData()
             self.busOptions = self.permanentBuses
