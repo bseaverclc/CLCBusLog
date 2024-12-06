@@ -176,7 +176,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     cell.busSlotA.backgroundColor = #colorLiteral(red: 0.9132722616, green: 0.2695424259, blue: 0.4834814668, alpha: 0.6500318878)
                     break
                 case busTendancy.Present:
-                    cell.busSlotA.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+                    cell.busSlotA.backgroundColor = #colorLiteral(red: 0.9677606225, green: 0.7857097983, blue: 0.1350967288, alpha: 1)
                     break
                 case _:
                     print("Catastrophic error! DIV0 OF DUPLE FAILED IN CELL INSTANCIATION")
@@ -191,7 +191,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     cell.busSlotB.backgroundColor = #colorLiteral(red: 0.9132722616, green: 0.2695424259, blue: 0.4834814668, alpha: 0.6500318878)
                     break
                 case busTendancy.Present:
-                    cell.busSlotB.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+                    cell.busSlotB.backgroundColor = #colorLiteral(red: 0.9677606225, green: 0.7857097983, blue: 0.1350967288, alpha: 1)
                     break
                 case _:
                     print("Catastrophic error! DIV1 OF DUPLE FAILED IN CELL INSTANCIATION")
@@ -219,7 +219,7 @@ class DevMode: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 cell.impliedBus.backgroundColor = #colorLiteral(red: 0.9132722616, green: 0.2695424259, blue: 0.4834814668, alpha: 0.6500318878)
                 cell.impliedName.text = ""
             default:
-                cell.impliedBus.backgroundColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+                cell.impliedBus.backgroundColor = #colorLiteral(red: 0.9677606225, green: 0.7857097983, blue: 0.1350967288, alpha: 1)
                 cell.impliedName.text = busOptions[indexPath.row - 2]
             }
             cell.impliedBus.layer.cornerRadius = 20
